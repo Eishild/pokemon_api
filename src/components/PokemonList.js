@@ -1,8 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { useState } from "react";
-
+import React from "react"
+import { Link } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { useState } from "react"
 
 const colours = {
   normal: "#A8A77A",
@@ -26,7 +25,6 @@ const colours = {
 }
 
 const PokemonCard = ({ pokemon }) => {
-
   const color = colours[pokemon.types[0].type.name]
   return (
     <div>
@@ -35,7 +33,6 @@ const PokemonCard = ({ pokemon }) => {
         className="card"
         style={{ background: color }}
       >
-
         <p>{pokemon.id}</p>
 
         <img src={pokemon.sprites.front_default} alt={pokemon.name} />
@@ -46,29 +43,29 @@ const PokemonCard = ({ pokemon }) => {
 }
 
 const PokemonList = () => {
-  const pokemons = useSelector((state) => state);
-  const [search, setSearch] = useState('')
-  let regex = new RegExp(search,'gi');
+  const pokemons = useSelector((state) => state)
+  const [search, setSearch] = useState("")
+  let regex = new RegExp(search, "gi")
 
-  const handleChange = ({target: { value }}) => {
+  const handleChange = ({ target: { value } }) => {
     setSearch(value)
   }
-  
+
   return (
-    <div>
-      <input 
-        className="input-search" 
-        type="text" 
-        value={search} 
+    <div className="main">
+      <input
+        className="input-search"
+        type="text"
+        value={search}
         onChange={handleChange}
         placeholder="Search pokemon..."
       />
       <div className="cards">
-      {pokemons
-        .filter(pokemon => pokemon.name.match(regex))
-        .map((pokemon) => (
-        <PokemonCard key={pokemon.id} pokemon={pokemon} />
-      ))}
+        {pokemons
+          .filter((pokemon) => pokemon.name.match(regex))
+          .map((pokemon) => (
+            <PokemonCard key={pokemon.id} pokemon={pokemon} />
+          ))}
       </div>
     </div>
   )
