@@ -6,6 +6,8 @@ export default function PolemonInfo() {
   const { id } = useParams();
   const pokemon = useSelector((state) => state[id]);
 
+  if (!pokemon) return <div>Not Found</div>;
+
   return (
     <div>
       <p>{pokemon.name}</p>
