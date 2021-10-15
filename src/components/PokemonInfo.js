@@ -23,7 +23,7 @@ const colours = {
   fairy: "#D685AD",
 }
 
-export default function PolemonInfo() {
+export default function PokemonInfo() {
   const { id } = useParams()
   const pokemon = useSelector((state) => state[id - 1])
   if (!pokemon)

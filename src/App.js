@@ -6,7 +6,7 @@ import { Switch, Route } from "react-router-dom"
 import "./styles/cards.css"
 import "./styles/info.css"
 
-import PokemonInfo from "./components/PolemonInfo"
+import PokemonInfo from "./components/PokemonInfo"
 import PokemonList from "./components/PokemonList"
 
 function App() {
