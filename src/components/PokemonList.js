@@ -1,38 +1,27 @@
-import axios from 'axios'
-import React from 'react'
-import { useState } from 'react'
-import { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
+import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
+const PokemonCard = ({ pokemon }) => {
+  console.log(pokemon);
+  return (
+    <div style={{ width: "200px", border: "1px solid red" }}>
+      <p>{pokemon.name}</p>
+      <Link to={`/${pokemon.id}`}>Info</Link>
+    </div>
+  );
+};
 
 const PokemonList = () => {
-  const dispatch = useDispatch()
-  const allPokemons = useSelector(state => state)
-  const [pokemons, setPokemons] = useState([]);
-
-  useEffect(() => {
-    const fetchPokemon = async () => {
-      const responce = await axios.get(
-        "https://pokeapi.co/api/v2/pokemon?limit=10"
-      );
-      let pokemons = responce.data.results;
-
-      pokemons.forEach(async (pokemon) => {
-        const responce = await axios.get(pokemon.url);
-        pokemon.data = responce.data;
-      });
-      dispatch({type: 'SET_POKEMONS', data: pokemons})
-    };
-    fetchPokemon();
-  }, [setPokemons]);
-  
-  console.log(allPokemons);
+  const pokemons = useSelector((state) => state);
+  console.log("PokemonLIst", pokemons);
   return (
     <div>
-
-      
+      {pokemons.map((pokemon) => (
+        <PokemonCard key={pokemon.id} pokemon={pokemon} />
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default PokemonList
+export default PokemonList;
