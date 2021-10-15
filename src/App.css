@@ -1,10 +1,7 @@
 .App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  height: 100vh;
+  width: 100%;
 }
 
 .input-search {
@@ -21,3 +18,4 @@
 .input-search:focus {
   border-bottom: 2px solid #009788;
 }
+

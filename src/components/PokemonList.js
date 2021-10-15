@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 
+
 const colours = {
   normal: "#A8A77A",
   fire: "#EE8130",
@@ -25,6 +26,7 @@ const colours = {
 }
 
 const PokemonCard = ({ pokemon }) => {
+
   const color = colours[pokemon.types[0].type.name]
   return (
     <div>
@@ -33,6 +35,9 @@ const PokemonCard = ({ pokemon }) => {
         className="card"
         style={{ background: color }}
       >
+
+        <p>{pokemon.id}</p>
+
         <img src={pokemon.sprites.front_default} alt={pokemon.name} />
         <p>{pokemon.name}</p>
       </Link>
