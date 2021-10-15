@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 export default function PolemonInfo() {
   const { id } = useParams();
-  const pokemon = useSelector((state) => state[id]);
+  const pokemon = useSelector((state) => state[id - 1]);
 
   if (!pokemon) return <div>Not Found</div>;
 
