@@ -35,6 +35,7 @@ const PokemonCard = ({ pokemon }) => {
         className="card"
         style={{ background: color }}
       >
+        <p>{pokemon.id}</p>
         <img src={pokemon.sprites.front_default} alt={pokemon.name} />
         <p>{pokemon.name}</p>
       </Link>
